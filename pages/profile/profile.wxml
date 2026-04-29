@@ -1,0 +1,134 @@
+<view wx:if="{{isReady}}" class="container {{isLogin ? 'bg-gray' : 'bg-white'}}">
+  
+  <!-- 已登录 -->
+  <block wx:if="{{isLogin}}">
+    <view class="user-card">
+      <image 
+        class="avatar" 
+        src="{{userInfo.image}}" 
+        mode="aspectFill" 
+        bindtap="previewAvatar" 
+        data-src="{{userInfo.image}}">
+      </image>
+      <view class="info-box">
+        <view class="nickname">{{userInfo.nickname || '微信用户'}}</view>
+        <view class="signature">{{userInfo.gexing || '这个人很懒，什么都没写~'}}</view>
+      </view>
+      <view class="edit-btn" bindtap="goToEditProfile">
+        编辑资料 <text class="arrow">></text>
+      </view>
+    </view>
+
+    <view class="menu-list">
+      <view class="menu-item" bindtap="goToUserProfile">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/userprofile.png"></image>
+          <text class="menu-title">我的资料</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+
+      <view class="menu-item" bindtap="goToSecurity">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/security.png"></image>
+          <text class="menu-title">账号安全</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+      
+      <view class="menu-item" bindtap="goToSettings">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/settings.png"></image>
+          <text class="menu-title">系统设置</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+
+      <button class="menu-item contact-item" open-type="contact">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/contact.png"></image>
+          <text class="menu-title">联系客服</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </button>
+    </view>
+
+    <view class="menu-list" style="margin-top: 30rpx;">
+      <view class="menu-item" bindtap="goToMyPosts">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/myposts.png"></image>
+          <text class="menu-title">我的文章</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+
+      <view class="menu-item" bindtap="goToMyMessages">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/message.png"></image>
+          <text class="menu-title">我的消息</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+
+      <view class="menu-item" bindtap="goToLikes">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/like.png"></image>
+          <text class="menu-title">我的点赞</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+
+      <view class="menu-item" bindtap="goToFavorites">
+        <view class="menu-left">
+          <image class="menu-icon" src="/assets/icons/favorite.png"></image>
+          <text class="menu-title">我的收藏</text>
+        </view>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="logout-btn" bindtap="handleLogout">退出登录</view>
+  </block>
+
+  <!-- 未登录 -->
+  <view wx:else class="login-guide">
+    <view class="guide-header">
+      <image class="guide-img" src="/assets/logo.png" mode="aspectFit"></image>
+      <view class="guide-desc">记录生活点滴，分享精彩瞬间</view>
+    </view>
+
+    <view class="guide-content">
+      <button class="go-login-btn" bindtap="goToLogin">立即登录</button>
+    </view>
+
+    <view class="guide-footer">
+      <view class="login-tips">登录后开启全部社交功能</view>
+    </view>
+  </view>
+
+</view>
+
+<view wx:else class="loading-full-screen">
+  <view class="loading-content">
+    <image class="loading-logo" src="/assets/logo.png" mode="aspectFit"></image>
+    <view class="loading-bar">
+      <view class="loading-line"></view>
+    </view>
+    <text class="loading-hint">正在加载中</text>
+  </view>
+</view>
+<view wx:if="{{showWechatPopup}}" class="wechat-bottom-sheet">
+  <view class="sheet-mask" bindtap="onCancelWechat"></view>
+  
+  <view class="sheet-content">
+    <view class="sheet-header">
+      <text class="sheet-title">获取微信昵称、头像</text>
+      <text class="sheet-desc">获取用户信息将用于完善个人资料</text>
+    </view>
+    
+    <view class="sheet-footer">
+      <button class="sheet-btn btn-reject" bindtap="onCancelWechat">拒绝</button> 
+      <button class="sheet-btn btn-allow" bindtap="onUseWechat">允许</button>
+    </view>
+  </view>
+</view>

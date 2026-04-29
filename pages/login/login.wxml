@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="header">
+    <image class="logo" src="/assets/logo.png" mode="aspectFit"></image>
+  </view>
+
+  <view class="content">
+    <button 
+      class="btn-wechat" 
+      bindtap="handleWechatLogin" 
+      hover-class="none">
+      微信一键登录
+    </button>
+
+    <button class="btn-account" bindtap="goToAccountLogin">
+      账号密码登录
+    </button>
+  </view>
+
+  <view class="footer">
+    <view class="agreement-box">
+      <checkbox checked="{{isAgree}}" bindtap="toggleAgreement" color="#07c160"/>
+      <view class="agreement-text">
+        我已阅读并同意
+        <text class="link" bindtap="goToLegal" data-type="agreement">《用户协议》</text>
+        与
+        <text class="link" bindtap="goToLegal" data-type="privacy">《隐私政策》</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="title">我的文章</view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToStatusList" data-status="2">
+      <view class="menu-left">
+        <image class="menu-icon-small" src="/assets/icons/post.png"></image>
+        <text class="menu-title">已发布</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goToStatusList" data-status="1">
+      <view class="menu-left">
+        <image class="menu-icon-small" src="/assets/icons/checking.png"></image>
+        <text class="menu-title">审核中</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goToStatusList" data-status="3">
+      <view class="menu-left">
+        <image class="menu-icon-small" src="/assets/icons/rejected.png"></image>
+        <text class="menu-title">审核失败</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goToPostsList" data-status="0">
+      <view class="menu-left">
+        <image class="menu-icon-small" src="/assets/icons/draft.png"></image>
+        <text class="menu-title">草稿箱</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips">提示：点击各板块可查看相应状态的文章列表并进行编辑管理。</view>
+</view>

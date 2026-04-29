@@ -1,0 +1,91 @@
+<view class="page-container">
+  <view class="header-section">
+    <view class="logo-area">
+      <text class="logo-text blue">写</text>
+      <text class="logo-text green">文</text>
+      <text class="logo-text red">章</text>
+    </view>
+  </view>
+
+  <view class="post-list">
+    <view class="card">
+      <view class="card-title">文章标题</view>
+      <input class="input-box" placeholder="请输入标题 (必填)" value="{{title}}" bindinput="onInput" data-field="title" />
+    </view>
+
+    <view class="card">
+      <view class="card-title">文章描述</view>
+      <textarea 
+        class="textarea-box desc-box" 
+        placeholder="请输入文章简介 (选填)" 
+        value="{{desc}}" 
+        bindinput="onInput" 
+        data-field="desc"
+        disable-default-padding="{{true}}" 
+      ></textarea>
+    </view>
+
+    <view class="card">
+      <view class="card-title">文章分类</view>
+      <picker bindchange="onCategoryChange" value="{{categoryIndex}}" range="{{categoryList}}" range-key="name">
+        <view class="picker-selector {{selectedCategoryId ? 'selected' : ''}}">
+          <text>{{selectedCategoryName || '点击选择分类'}}</text>
+          <text class="arrow-down">▼</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="card">
+      <view class="card-title">文章标签</view>
+      <view class="tag-grid">
+        <view 
+          wx:for="{{tagList}}" 
+          wx:key="id" 
+          class="tag-item {{item.active ? 'active-blue' : ''}}"
+          bindtap="toggleTag" 
+          data-id="{{item.id}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">文章内容</view>
+      <view class="content-wrapper">
+        <textarea 
+          class="textarea-box content-box" 
+          placeholder="在此输入正文内容..." 
+          value="{{content}}" 
+          bindinput="onInput" 
+          data-field="content" 
+          maxlength="-1"
+          disable-default-padding="{{true}}"
+          style="height: 380rpx;" 
+        ></textarea>
+
+        <view class="inner-image-preview" wx:if="{{imageList.length > 0}}">
+          <view class="preview-item" wx:for="{{imageList}}" wx:key="index">
+            <image src="{{item}}" class="preview-img" mode="aspectFill" bindtap="previewImage" data-url="{{item}}" />
+            <view class="delete-btn" catchtap="deleteImage" data-index="{{index}}">×</view>
+          </view>
+        </view>
+
+        <view class="add-img-btn" bindtap="chooseImage">+</view>
+      </view>
+    </view>
+
+    <view class="button-group">
+
+      <!-- 草稿 / 撤回 -->
+      <button class="draft-btn" bindtap="saveDraft" disabled="{{isSubmitting}}">
+        {{ (status == 1 || status == 2) ? '撤回' : '存为草稿' }}
+      </button>
+
+      <!-- 提交逻辑 -->
+      <button class="confirm-btn" bindtap="submitPost" disabled="{{isSubmitting}}">
+        {{ status == 3 ? '重新提交' : '提交审核' }}
+      </button>
+
+    </view>
+  </view>
+</view>

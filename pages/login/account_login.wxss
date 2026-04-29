@@ -1,0 +1,99 @@
+/* 容器 */
+.container { 
+  padding: 60rpx; 
+}
+
+/* 1. 标题居中 */
+.title { 
+  font-size: 48rpx; 
+  font-weight: bold; 
+  margin-bottom: 80rpx; 
+  color: #333; 
+  text-align: center; /* 核心：文字居中 */
+}
+
+/* 输入框样式 */
+.form-group {
+  margin-bottom: 40rpx;
+}
+
+.input-item { 
+  border-bottom: 1rpx solid #eee; 
+  padding: 30rpx 0; 
+  margin-bottom: 10rpx; 
+}
+
+.input-item input { 
+  font-size: 32rpx; 
+  width: 100%; 
+}
+
+/* 2. 登录按钮：微信白底黑字风格 */
+.btn-submit { 
+  width: 100% !important; /* 强制占满宽度 */
+  background: #f2f2f2 !important; /* 微信次级按钮的浅灰色，也可以换成 #ffffff */
+  color: #333333 !important; 
+  border-radius: 12rpx; /* 微圆角，更显专业 */
+  margin-top: 80rpx; 
+  height: 96rpx; 
+  font-weight: 600;
+  
+  /* 核心：解决文字正中心对齐 */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 !important;
+}
+
+/* 按钮点击效果 */
+.btn-submit:active {
+  background-color: #e5e5e5 !important;
+}
+
+/* 3. 链接组：左右对齐 */
+.link-group { 
+  display: flex; 
+  justify-content: space-between; /* 核心：一个左对齐，一个右对齐 */
+  align-items: center;
+  margin-top: 40rpx; 
+  padding: 0 10rpx;
+}
+
+.link { 
+  color: #576b95; 
+  font-weight: 500;
+}
+
+/* 注册链接稍微加深颜色，引导用户 */
+.register-link {
+  color: #576b95; 
+  font-weight: 500;
+}
+/* 让密码输入框和眼睛图标横向排列 */
+.password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 输入框占据左侧剩余所有空间 */
+.password-input {
+  flex: 1; 
+  font-size: 32rpx;
+}
+
+/* 眼睛按钮点击区域 */
+.eye-btn {
+  padding: 0 20rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 修复：确保 input-item 里的 input 不会因为 flex 默认宽度缩死 */
+.input-item input { 
+  font-size: 32rpx; 
+  /* 移除原来的 width: 100%，由 flex 控制或保持默认 */
+}

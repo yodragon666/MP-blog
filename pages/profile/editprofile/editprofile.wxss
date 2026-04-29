@@ -1,0 +1,173 @@
+/* 全局背景色 */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  display: block;
+  margin: 25rpx auto 30rpx auto;
+  width: 100%;
+}
+
+/* 主卡片样式 */
+.main-card {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  padding: 0 40rpx 20rpx 40rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.info-label {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+  min-width: 160rpx;
+}
+
+/* --- 🌟 头像样式统一区 --- */
+
+/* 1. 微信原生按钮模式 */
+.avatar-wrapper {
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  line-height: normal;
+  border: none;
+}
+.avatar-wrapper::after { border: none; }
+
+/* 2. 手动上传模式（View） */
+.avatar-display {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  /* 确保即便不是 button 也有相同的点击区域大小 */
+  min-height: 100rpx; 
+}
+
+/* 统一点击反馈效果 */
+.avatar-wrapper:active, .avatar-display:active {
+  opacity: 0.7;
+}
+
+.profile-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+/* --- 🌟 输入与展示区 --- */
+
+.info-input {
+  flex: 1;
+  text-align: right;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.picker-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.info-value {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #ccc;
+  margin-left: 16rpx;
+  font-family: consolas;
+}
+
+/* 个人简介编辑区 */
+.textarea-section {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-label {
+  margin-bottom: 24rpx;
+}
+
+.custom-textarea {
+  width: 100%;
+  height: 200rpx;
+  background-color: #f8f9fb;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  border: 1rpx solid #edf0f5;
+}
+
+.placeholder-style {
+  color: #bbbbbb;
+  font-size: 28rpx;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 22rpx;
+  color: #cccccc;
+  margin-top: 12rpx;
+  padding-right: 10rpx;
+}
+
+/* 底部保存按钮 */
+.save-btn-container {
+  margin-top: 25rpx;
+  padding-bottom: 60rpx;
+}
+
+.action-btn-save {
+  background-color: #ffffff !important;
+  color: #576b95 !important;
+  border-radius: 24rpx;
+  padding: 36rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  width: 100% !important;
+  line-height: normal;
+  display: block;
+}
+
+.action-btn-save:active {
+  background-color: #f2f2f2 !important;
+  opacity: 0.9;
+}

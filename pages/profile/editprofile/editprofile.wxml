@@ -1,0 +1,88 @@
+<view class="container">
+  <view class="header-title">编辑资料</view>
+
+  <view class="main-card">
+    <view class="info-row">
+      <view class="info-label">头像</view>
+      
+      <button 
+        wx:if="{{ !(is_guest == 0 && is_completed == 0) }}"
+        class="avatar-wrapper" 
+        open-type="chooseAvatar" 
+        bind:chooseavatar="onChooseAvatar"
+      >
+        <image class="profile-avatar" src="{{userInfo.image}}" mode="aspectFill"></image>
+        <text class="menu-arrow">></text>
+      </button>
+
+      <view 
+        wx:else 
+        class="avatar-display" 
+        bindtap="onChooseImageManual"
+      >
+        <image class="profile-avatar" src="{{userInfo.image}}" mode="aspectFill"></image>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">昵称</view>
+      <input 
+        type="{{ !(is_guest == 0 && is_completed == 0) ? 'nickname' : 'text' }}" 
+        class="info-input" 
+        placeholder="请输入昵称" 
+        placeholder-style="color: #ccc;"
+        value="{{userInfo.nickname}}" 
+        bindinput="onNicknameInput" 
+      />
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">性别</view>
+      <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genderRange}}">
+        <view class="picker-box">
+          <text class="info-value">{{genderRange[genderIndex] || '未设置'}}</text>
+          <text class="menu-arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">生日</view>
+      <picker mode="date" value="{{userInfo.birthday}}" start="1970-01-01" end="2030-12-31" bindchange="onBirthdayChange">
+        <view class="picker-box">
+          <text class="info-value">{{userInfo.birthday || '未设置'}}</text>
+          <text class="menu-arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">地址</view>
+      <input class="info-input" placeholder="未设置" placeholder-style="color: #ccc;" value="{{userInfo.address}}" bindinput="onAddressInput" />
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">个性签名</view>
+      <input class="info-input" placeholder="未设置" placeholder-style="color: #ccc;" value="{{userInfo.gexing}}" bindinput="onGexingInput" />
+    </view>
+
+    <view class="textarea-section">
+      <view class="info-label textarea-label">个人简介</view>
+      <textarea 
+        class="custom-textarea" 
+        placeholder="简单介绍下自己..." 
+        placeholder-class="placeholder-style"
+        value="{{userInfo.desc}}" 
+        bindinput="onDescInput" 
+        maxlength="100"
+        show-confirm-bar="{{false}}"
+      ></textarea>
+      <view class="word-count">{{userInfo.desc.length || 0}}/100</view>
+    </view>
+  </view>
+
+  <view class="save-btn-container">
+    <button class="action-btn-save" bindtap="onSave">保存修改</button>
+  </view>
+</view>

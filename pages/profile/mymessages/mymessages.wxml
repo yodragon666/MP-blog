@@ -1,0 +1,81 @@
+<view wx:if="{{isReady}}" class="page-container">
+  
+  <view class="mask-layer" wx:if="{{showMoreMenu || showFilterMenu}}" bindtap="closeAllMenu"></view>
+
+  <view class="header-section">
+    <view class="header-top">
+      <view class="title-group">
+        <view class="big-status-title">我的消息</view>
+        <view class="sub-header-line"></view>
+      </view>
+      
+      <view class="more-container">
+        <image src="/assets/icons/more.png" class="more-icon" catchtap="toggleMoreMenu"></image>
+        <view class="popup-menu right-menu" wx:if="{{showMoreMenu}}">
+          <view class="menu-item" catchtap="markAllRead">全部已读</view>
+          <view class="menu-item delete-text" catchtap="deleteAllLoaded">全部删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="post-list">
+    <view class="post-card archive-card-header">
+      <view class="header-left filter-trigger" catchtap="toggleFilterMenu">
+        <view class="blue-line"></view>
+        <text class="archive-label">当前列表：</text>
+        <text class="archive-value">{{filterName}}</text>
+        <text class="arrow-down {{showFilterMenu ? 'rotate' : ''}}">▼</text>
+        
+        <view class="popup-menu left-menu" wx:if="{{showFilterMenu}}">
+          <view class="menu-item {{filterType === 'all' ? 'active-menu' : ''}}" catchtap="switchFilter" data-type="all">全部消息</view>
+          <view class="menu-item {{filterType === 'unread' ? 'active-menu' : ''}}" catchtap="switchFilter" data-type="unread">未读消息</view>
+        </view>
+      </view>
+
+      <view class="header-right">
+        <view class="archive-count">
+          <text>共 </text>
+          <text class="count-number">{{total || 0}}</text>
+          <text> 条</text>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{postList.length > 0}}">
+      <view 
+        class="msg-card {{item.is_read ? 'msg-read' : 'msg-unread'}}" 
+        wx:for="{{postList}}" 
+        wx:key="id" 
+        bindtap="goToDetail" 
+        bindlongpress="onLongPressMessage"
+        data-id="{{item.id}}"
+        data-read="{{item.is_read}}"
+      >
+        <view class="unread-indicator" wx:if="{{!item.is_read}}"></view>
+
+        <view class="msg-header">
+          <view class="msg-type-box">
+            <view class="dot blue-dot" wx:if="{{!item.is_read}}"></view>
+            <text class="msg-type-text">{{typeMap[item.type] || '系统通知'}}</text>
+          </view>
+          <text class="msg-time">{{item.created_at}}</text>
+        </view>
+
+        <view class="msg-content">{{item.content}}</view>
+      </view>
+
+      <view class="loading-status">
+        <text wx:if="{{page < totalPage}}">上滑加载更多...</text>
+        <text wx:else class="no-more">已加载全部消息</text>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="empty-box">
+        <image src="/assets/icons/nothings.png" class="empty-img" mode="aspectFit" />
+        <view class="empty-text">暂无消息记录</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,112 @@
+/* 全局背景 */
+page {
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 改为最小高度 */
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* 顶部 Logo 区 */
+.header {
+  /* 🔥 核心修改：减小顶部边距，抵消 Logo 变大的高度 */
+  margin-top: 160rpx;    /* 原 140rpx -> 40rpx */
+  text-align: center;
+  margin-bottom: 130rpx; 
+}
+
+/* 🔥 Logo 大小调至 320rpx */
+.logo {
+  width: 320rpx; 
+  height: 320rpx;
+  margin-bottom: 20rpx;
+}
+
+.app-name {
+  font-size: 52rpx;      /* 稍微调大了一点，配合 320rpx 的大 Logo */
+  font-weight: bold;
+  color: #111;
+  letter-spacing: 4rpx;
+  display: block;
+}
+
+.app-slogan {
+  font-size: 26rpx;
+  color: #888;
+  margin-top: 10rpx;
+}
+
+/* 操作区 */
+.content {
+  flex: 1;
+}
+
+button {
+  width: 100% !important;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+button::after {
+  border: none;
+}
+
+.btn-wechat {
+  background-color: #07c160 !important;
+  color: #ffffff !important;
+  margin-bottom: 30rpx !important;
+}
+
+.btn-account {
+  background-color: #f2f2f2 !important;
+  color: #333333 !important;
+  margin-bottom: 40rpx !important;
+}
+
+.btn-wechat:active, .btn-account:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.reg-link {
+  text-align: center;
+  font-size: 28rpx;
+  color: #576b95;
+  margin-top: 20rpx;
+}
+
+/* 底部协议 */
+.footer {
+  padding-bottom: 150rpx; /* 增加底部间距，让它离手机屏幕底边远一点 */
+  margin-top: 40rpx; /* 确保它和上面的按钮有一段距离 */
+}
+
+.agreement-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agreement-text {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: -10rpx;
+}
+
+.link {
+  color: #576b95;
+  display: inline;
+  padding: 0 4rpx;
+}

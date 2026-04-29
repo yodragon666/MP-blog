@@ -1,0 +1,16 @@
+<view class="password-wrap">
+  <input 
+    password="{{!isPasswordVisible}}" 
+    placeholder="{{placeholder}}" 
+    value="{{value}}"
+    bindinput="onInput"
+    class="password-input"
+  />
+  <view class="eye-btn" bindtap="togglePasswordVisible">
+    <image 
+      src="{{isPasswordVisible ? '/assets/icons/eye-open.png' : '/assets/icons/eye-close.png'}}" 
+      mode="aspectFit" 
+      style="width: 40rpx; height: 40rpx;"
+    />
+  </view>
+</view>

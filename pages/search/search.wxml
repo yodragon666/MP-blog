@@ -1,0 +1,116 @@
+<view class="page-container">
+<view class="header-section">
+  <view class="logo-area">
+    <text class="logo-text blue">轻</text>
+    <text class="logo-text green">博</text>
+    <text class="logo-text red">客</text>
+  </view>
+
+  <view class="search-bar">
+    <icon type="search" size="16" color="#9aa0a6"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索感兴趣的内容..."
+      value="{{keyword}}"
+      confirm-type="search"
+      bindconfirm="onSearch"
+      bindinput="onInput"
+    />
+    <icon
+      wx:if='{{keyword}}'
+      class='clear-icon'
+      type='clear'
+      size='18'
+      color='#bdc1c6'
+      bindtap='onClear'
+    ></icon>
+  </view>
+</view>
+
+<view class="post-list">
+
+  <block wx:if="{{hasSearched}}">
+
+    <view class="post-card archive-card-header">
+      <view class="header-left">
+        <view class="blue-line"></view>
+        <text class="archive-label">搜索关键词：</text>
+        <text class="archive-value">{{keyword}}</text>
+      </view>
+      <view class="header-right">
+        <view class="archive-count">
+          <text>共 </text>
+          <text class="count-number">{{total || 0}}</text>
+          <text> 篇</text>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{postList.length > 0}}">
+      <view 
+        class="post-card"
+        wx:for="{{postList}}"
+        wx:key="id"
+        bindtap="goDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="post-title">{{item.title}}</view>
+        <view class="post-info">
+          <view class="info-inner"><view class="dot blue-dot"></view><text class="info-text">{{item.author}}</text></view>
+          <view class="info-inner"><view class="dot green-dot"></view><text class="info-text">{{item.add_date}}</text></view>
+          <view class="info-inner"><view class="dot red-dot"></view><text class="info-text">{{item.pv}} 阅读</text></view>
+        </view>
+        <view class="post-desc">{{item.desc}}</view>
+      </view>
+
+      <view class="pagination">
+        <button class="page-btn" bindtap="prevPage" disabled="{{page <= 1}}">上一页</button>
+        <text class="page-info">{{page}} / {{totalPage}}</text>
+        <button class="page-btn" bindtap="nextPage" disabled="{{page >= totalPage}}">下一页</button>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="empty-box">
+        <image src="/assets/icons/nothings.png" class="empty-img" mode="aspectFit"/>
+        <view class="empty-text">暂无内容</view>
+        <view class="empty-sub">换个关键词试试吧</view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:else>
+    <view class="card">
+      <view class="card-title">最新文章</view>
+      <block wx:for="{{newPosts}}" wx:key="id">
+        <view class="card-item" bindtap="goDetail" data-id="{{item.id}}">
+          <view class="dot black-dot"></view> 
+          <text class="item-text">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+
+    <view class="card">
+      <view class="card-title">最热文章</view>
+      <block wx:for="{{hotPosts}}" wx:key="id">
+        <view class="card-item" bindtap="goDetail" data-id="{{item.id}}">
+          <view class="dot black-dot"></view>
+          <text class="item-text">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="fab-btn" bindtap="goToAddPost">
+      <text class="fab-icon">+</text>
+    </view>
+    <view class="card">
+      <view class="card-title">文章归档</view>
+      <block wx:for="{{archives}}" wx:key="index">
+        <view class="card-item" bindtap="goArchive" data-year="{{item.year}}" data-month="{{item.month}}">
+          <view class="dot black-dot"></view>
+          <text class="item-text">{{item.year}}年 {{item.month}}月</text>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+</view>

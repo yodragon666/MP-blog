@@ -1,0 +1,79 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.container {
+  padding: 0 30rpx; /* 统一侧边留白 */
+  box-sizing: border-box;
+}
+
+/* ⭐ 这里的样式现在和“我的资料”完全一致 */
+.title {
+  font-size: 40rpx;         /* 从 42rpx 改为 40rpx */
+  font-weight: 600;         /* 保持中粗体 */
+  color: #333;
+  text-align: center;       /* 居中显示 */
+  display: block;
+  margin: 40rpx auto 40rpx auto; /* 间距缩小：顶部 25rpx，底部 30rpx */
+  width: 100%;
+}
+
+.menu-list {
+  background-color: #ffffff;
+  border-radius: 28rpx;    /* 稍微调圆润一点，匹配资料页 */
+  padding: 0 32rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03); /* 加入微弱阴影增加质感 */
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+
+.current-value {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 12rpx;
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: #ccc;
+  font-family: consolas;
+}
+
+.danger-text {
+  color: #fa5151;
+}
+
+.danger-zone {
+  margin-top: 60rpx;
+}
+
+.tips {
+  font-size: 24rpx;
+  color: #999;
+  padding: 20rpx 30rpx;
+  line-height: 1.6;
+}
+
+.menu-item:active {
+  background-color: #fafafa;
+}

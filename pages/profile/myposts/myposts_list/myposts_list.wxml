@@ -1,0 +1,85 @@
+<view wx:if="{{isReady}}" class="page-container">
+  <view class="header-section">
+    <view class="big-status-title">{{statusName}}</view>
+    <view class="sub-header-line"></view>
+  </view>
+
+  <view class="post-list">
+    <view class="post-card archive-card-header">
+      <view class="header-left">
+        <view class="blue-line"></view>
+        <text class="archive-label">当前板块：</text>
+        <text class="archive-value">{{statusName}}</text>
+      </view>
+      <view class="header-right">
+        <view class="archive-count">
+          <text>共 </text>
+          <text class="count-number">{{total || 0}}</text>
+          <text> 篇</text>
+        </view>
+      </view>
+    </view>
+    <view class="fab-btn" bindtap="goToAddPost">
+      <text class="fab-icon">+</text>
+    </view>
+
+    <block wx:if="{{postList.length > 0}}">
+      <view class="post-card" wx:for="{{postList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="post-title">{{item.title}}</view>
+        
+        <view class="post-info">
+          <view class="info-inner">
+            <!-- 已发布 -->
+            <text wx:if="{{status == 2}}" class="info-text">发布时间：{{item.publish_time}}</text>
+            
+            <!-- 审核中 或 审核失败 (假设审核失败状态码为3) -->
+            <text wx:elif="{{status == 1 || status == 3}}" class="info-text">提交时间：{{item.submit_time}}</text>
+            
+            <!-- 草稿箱 -->
+            <text wx:elif="{{status == 0}}" class="info-text">最后修改时间：{{item.pub_date}}</text>
+            
+          </view>
+        </view>
+        
+        <view class="card-footer">
+          <view class="action-btn-group">
+
+            <!-- 修改 -->
+            <view class="action-item" catchtap="handleEdit" data-id="{{item.id}}">
+              <image class="action-icon" src="/assets/icons/edit.png"></image>
+              <text>修改</text>
+            </view>
+
+            <!-- 撤回：只有 审核中 / 已发布 才显示 -->
+            <view wx:if="{{status == 1 || status == 2}}"
+                  class="action-item"
+                  catchtap="handleBack"
+                  data-id="{{item.id}}">
+              <image class="action-icon" src="/assets/icons/back.png"></image>
+              <text>撤回</text>
+            </view>
+
+            <!-- 删除 -->
+            <view class="action-item delete-text" catchtap="handleDelete" data-id="{{item.id}}">
+              <image class="action-icon" src="/assets/icons/delete.png"></image>
+              <text>删除</text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+
+      <view class="load-more-status">
+        <view wx:if="{{isLoading}}" class="loading-tips">正在努力加载中...</view>
+        <view wx:elif="{{page >= totalPage}}" class="no-more">—— 已显示全部内容 ——</view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="empty-box">
+        <image src="/assets/icons/nothings.png" class="empty-img" mode="aspectFit" />
+        <view class="empty-text">暂无内容</view>
+      </view>
+    </block>
+  </view>
+</view>

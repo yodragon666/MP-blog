@@ -1,0 +1,127 @@
+/* 全局背景色 */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  padding: 0 30rpx; /* 侧边留白 30rpx */
+  box-sizing: border-box;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  display: block;
+  margin: 40rpx auto 40rpx auto; /* 顶部距离保持 25rpx 左右 */
+  width: 100%;
+}
+
+/* 主卡片样式 */
+.main-card {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  padding: 0 40rpx 20rpx 40rpx; /* 底部预留 20rpx */
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.info-label {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+  min-width: 160rpx;
+}
+
+/* 头像展示样式 */
+.avatar-display {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.profile-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+/* 展示文字的样式：靠右、深色 */
+.info-value-text {
+  flex: 1;
+  text-align: right;
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 20rpx;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #ccc;
+  margin-left: 16rpx;
+  font-family: consolas;
+}
+
+/* 个人简介展示盒 */
+.textarea-section {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-label {
+  margin-bottom: 24rpx;
+}
+
+.custom-display-box {
+  width: 100%;
+  min-height: 160rpx;
+  background-color: #f8f9fb; /* 极浅蓝灰 */
+  border-radius: 20rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #edf0f5;
+}
+
+.display-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- 🌟 底部按钮间距锁定 25rpx --- */
+.save-btn-container {
+  margin-top: 25rpx; /* 严格控制与上方卡片的间距 */
+  padding-bottom: 60rpx;
+}
+
+.action-btn-edit {
+  background-color: #ffffff !important;
+  color: #07c160 !important; /* 统一绿色风格 */
+  border-radius: 24rpx;
+  padding: 36rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  width: 100% !important;
+  line-height: normal;
+  display: block;
+}
+
+.action-btn-edit:active {
+  background-color: #f2f2f2 !important;
+}

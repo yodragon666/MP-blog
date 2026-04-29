@@ -1,0 +1,66 @@
+<view wx:if="{{isReady}}" class="page-container">
+  <view class="header-section">
+    <view class="big-status-title">我的收藏</view>
+    <view class="sub-header-line"></view>
+  </view>
+
+  <view class="post-list">
+    <view class="post-card archive-card-header">
+      <view class="header-left">
+        <view class="blue-line"></view>
+        <text class="archive-label">当前位置：</text>
+        <text class="archive-value">收藏列表</text>
+      </view>
+      <view class="header-right">
+        <view class="archive-count">
+          <text>共 </text>
+          <text class="count-number">{{total || 0}}</text>
+          <text> 篇</text>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{postList.length > 0}}">
+      <view class="post-card" wx:for="{{postList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="post-title">{{item.title}}</view>
+        <view class="post-info">
+          <view class="info-inner">
+            <view class="dot blue-dot"></view>
+            <text class="info-text">{{item.author}}</text>
+          </view>
+          <view class="info-inner">
+            <view class="dot green-dot"></view>
+            <text class="info-text">{{item.publish_time}}</text>
+          </view>
+          <view class="info-inner">
+            <view class="dot red-dot"></view>
+            <text class="info-text">{{item.pv}} 阅读</text>
+          </view>
+        </view>
+        <view class="post-desc">{{item.desc}}</view>
+      </view>
+
+      <view class="load-more-status">
+        <view wx:if="{{page < totalPage}}" class="loading-inline">
+          <view class="dot-jump"></view>
+          <text>正在加载更多...</text>
+        </view>
+        <text wx:else class="no-more">—— 已加载全部收藏文章 ——</text>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="empty-box">
+        <image src="/assets/icons/nothings.png" class="empty-img" mode="aspectFit" />
+        <view class="empty-text">暂无收藏内容</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view wx:else class="loading-full-screen">
+  <view class="loading-content">
+    <view class="loading-bar"><view class="loading-line"></view></view>
+    <text class="loading-hint">正在获取收藏列表</text>
+  </view>
+</view>

@@ -1,0 +1,93 @@
+/* 容器 */
+.container { 
+  padding: 60rpx; 
+}
+
+.title { 
+  font-size: 48rpx; 
+  font-weight: bold; 
+  margin-bottom: 80rpx; 
+  color: #333; 
+  text-align: center; 
+}
+
+.form-group {
+  margin-bottom: 40rpx;
+}
+
+.input-item { 
+  border-bottom: 1rpx solid #eee; 
+  padding: 30rpx 0; 
+  margin-bottom: 10rpx; 
+  display: flex;
+  align-items: center;
+}
+
+.input-item input { 
+  font-size: 32rpx; 
+  flex: 1;
+}
+
+/* 密码行专用 */
+.password-wrap {
+  justify-content: space-between;
+}
+
+.password-input {
+  flex: 1;
+}
+
+.eye-btn {
+  padding: 0 10rpx 0 30rpx; /* 增加左侧间距防止太挤 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 验证码按钮 */
+.email-group {
+  justify-content: space-between;
+}
+
+.verify-code-btn {
+  font-size: 28rpx;
+  color: #576b95;
+  font-weight: 500;
+  padding-left: 20rpx;
+  border-left: 1rpx solid #eee;
+  white-space: nowrap;
+}
+
+.verify-code-btn.disabled {
+  color: #ccc;
+}
+
+/* 提交按钮 */
+.btn-submit { 
+  width: 100% !important; 
+  background: #f2f2f2 !important; 
+  color: #333333 !important; 
+  border-radius: 12rpx; 
+  margin-top: 60rpx; 
+  height: 96rpx; 
+  font-weight: 600;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.btn-submit:active {
+  background-color: #e5e5e5 !important;
+}
+
+.link-group { 
+  display: flex; 
+  justify-content: flex-end; /* 已有账号链接靠右 */
+  margin-top: 40rpx; 
+}
+
+.link { 
+  color: #576b95; 
+  font-weight: 500;
+  font-size: 28rpx;
+}

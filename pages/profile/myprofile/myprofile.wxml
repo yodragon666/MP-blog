@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="header-title">我的资料</view>
+
+  <view class="main-card">
+    <view class="info-row">
+      <view class="info-label">头像</view>
+      <view class="avatar-display">
+        <image 
+          class="profile-avatar" 
+          src="{{userInfo.image}}" 
+          mode="aspectFill" 
+          bindtap="previewAvatar" 
+          data-src="{{userInfo.image}}">
+        </image>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">昵称</view>
+      <text class="info-value-text">{{userInfo.nickname || '未设置'}}</text>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">性别</view>
+      <text class="info-value-text">{{genderRange[genderIndex] || '保密'}}</text>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">生日</view>
+      <text class="info-value-text">{{userInfo.birthday || '未设置'}}</text>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">地址</view>
+      <text class="info-value-text">{{userInfo.address || '未设置'}}</text>
+    </view>
+
+    <view class="info-row">
+      <view class="info-label">个性签名</view>
+      <text class="info-value-text">{{userInfo.gexing || '暂无签名'}}</text>
+    </view>
+
+    <view class="textarea-section">
+      <view class="info-label textarea-label">个人简介</view>
+      <view class="custom-display-box">
+        <text class="display-text">{{userInfo.desc || '这个同学很神秘，还没有写简介~'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="save-btn-container">
+    <button class="action-btn-edit" bindtap="goToEdit">去编辑资料</button>
+  </view>
+</view>

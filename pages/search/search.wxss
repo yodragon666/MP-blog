@@ -1,0 +1,109 @@
+page {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* ===== 顶部与搜索框 ===== */
+.header-section {
+  background: #ffffff;
+  padding: 25rpx 40rpx 40rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-area { margin-bottom: 20rpx; }
+.logo-text { font-size: 52rpx; font-weight: 900; margin: 0 4rpx; }
+.blue { color: #4285F4; }
+.green { color: #34A853; }
+.red { color: #EA4335; }
+
+.search-bar {
+  background: #f1f3f4;
+  height: 88rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx; /* 稍微缩小内边距 */
+  width: 100%;
+}
+.search-input { flex: 1; margin-left: 15rpx; font-size: 28rpx; color: #202124; }
+
+/* ⭐ 清除图标样式 */
+.clear-icon {
+  padding: 10rpx; /* 增大点击热区 */
+  margin-right: -5rpx;
+  transition: all 0.1s ease;
+}
+.clear-icon:active {
+  transform: scale(0.8); /* 点击时轻微缩小反馈 */
+  opacity: 0.7;
+}
+
+/* ===== 统一列表容器 ===== */
+.post-list { padding: 30rpx 30rpx 40rpx; }
+
+/* ===== 通用卡片与文章卡片 ===== */
+.post-card, .card {
+  background: #fff; border-radius: 32rpx; padding: 35rpx;
+  margin-bottom: 25rpx; box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.04);
+}
+.post-title { font-size: 36rpx; font-weight: bold; color: #4285F4; margin-bottom: 18rpx; }
+
+/* ===== 筛选信息头部 ===== */
+.archive-card-header { display: flex; justify-content: space-between; align-items: center; }
+.header-left { display: flex; align-items: center; flex: 1; overflow: hidden; }
+.blue-line { width: 8rpx; height: 32rpx; background-color: #4285F4; border-radius: 4rpx; margin-right: 18rpx; flex-shrink: 0; }
+.archive-label { font-size: 26rpx; color: #9aa0a6; white-space: nowrap; }
+.archive-value { 
+  font-size: 28rpx; font-weight: bold; color: #202124; 
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260rpx; 
+}
+.archive-count { font-size: 26rpx; color: #9aa0a6; flex-shrink: 0; }
+.count-number { font-weight: bold; color: #4285F4; }
+
+/* ===== 文章信息与样式 ===== */
+.post-info { display: flex; gap: 24rpx; margin-bottom: 20rpx; }
+.info-inner { display: flex; align-items: center; }
+.dot { width: 14rpx; height: 14rpx; border-radius: 50%; margin-right: 10rpx; flex-shrink: 0; }
+.blue-dot { background: #4285F4; }
+.green-dot { background: #34A853; }
+.red-dot { background: #EA4335; }
+.black-dot { background: #202124; width: 10rpx; height: 10rpx; }
+.info-text { font-size: 24rpx; color: #9aa0a6; }
+.post-desc {
+  font-size: 28rpx; color: #5f6368; line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ===== 分类卡片内容 ===== */
+.card-title {
+  font-size: 40rpx; font-weight: 700; color: #202124;
+  border-left: 8rpx solid #4285F4; padding-left: 15rpx; margin-bottom: 20rpx;
+}
+.card-item { display: flex; align-items: center; padding: 22rpx 0; border-bottom: 1rpx solid #fafafa; }
+.item-text { font-size: 30rpx; color: #4285F4; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ===== 分页 ===== */
+.pagination { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 30rpx; padding: 40rpx 0; }
+.page-btn {
+  background: #ffffff !important; color: #4285F4 !important;
+  height: 80rpx !important; line-height: 80rpx !important;
+  border-radius: 40rpx !important; border: 2rpx solid #4285F4 !important;
+  font-size: 28rpx !important; font-weight: 500 !important; padding: 0 45rpx !important; margin: 0 !important;
+}
+.page-btn[disabled] { color: #bdc1c6 !important; border-color: #eee !important; background: #fafafa !important; }
+.page-info { font-size: 28rpx; color: #5f6368; white-space: nowrap; }
+
+/* ===== 空状态 ===== */
+.empty-box { margin-top: 100rpx; display: flex; flex-direction: column; align-items: center; }
+.empty-img { width: 220rpx; height: 220rpx; margin-bottom: 20rpx; }
+.empty-text { font-size: 32rpx; font-weight: 600; color: #9aa0a6; }
+.empty-sub { font-size: 24rpx; color: #bdc1c6; }
+/* 悬浮按钮 */
+.fab-btn {
+  position: fixed; right: 40rpx; bottom: calc(50rpx + env(safe-area-inset-bottom));
+  width: 110rpx; height: 110rpx; background-color: #4285F4; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(66, 133, 244, 0.4); z-index: 99;
+}
+.fab-icon { color: #ffffff; font-size: 60rpx; font-weight: 300; margin-top: -6rpx; }

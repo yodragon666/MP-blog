@@ -1,0 +1,79 @@
+/* 容器 */
+.container { 
+  padding: 60rpx; 
+}
+
+/* 标题 */
+.title { 
+  font-size: 48rpx; 
+  font-weight: bold; 
+  margin-bottom: 80rpx; 
+  color: #333; 
+  text-align: center; 
+}
+
+.form-group {
+  margin-bottom: 40rpx;
+}
+
+/* 核心：利用 Flex 布局对齐 */
+.input-item { 
+  border-bottom: 1rpx solid #eee; 
+  padding: 30rpx 0; 
+  margin-bottom: 10rpx; 
+  display: flex;         /* 开启弹性布局 */
+  align-items: center;   /* 垂直居中 */
+}
+
+/* 让输入框占据左侧所有剩余空间 */
+.input-item input { 
+  font-size: 32rpx; 
+  flex: 1;               /* 自动撑开 */
+}
+
+/* 密码区域特殊处理 */
+.password-wrap {
+  justify-content: space-between;
+}
+
+/* 眼睛按钮：固定在右侧，增加点击热区 */
+.eye-btn {
+  padding: 10rpx 0 10rpx 30rpx; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 按钮样式 */
+.btn-submit { 
+  width: 100% !important; 
+  background: #f2f2f2 !important; 
+  color: #333333 !important; 
+  border-radius: 12rpx; 
+  margin-top: 80rpx; 
+  height: 96rpx; 
+  font-weight: 600;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 !important;
+}
+
+.btn-submit:active {
+  background-color: #e5e5e5 !important;
+}
+
+/* 底部链接 */
+.link-group { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-top: 40rpx; 
+  padding: 0 10rpx;
+}
+
+.link { 
+  color: #576b95; 
+  font-weight: 500;
+  font-size: 28rpx;
+}

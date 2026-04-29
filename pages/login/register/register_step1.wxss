@@ -1,0 +1,77 @@
+/* 容器设置 */
+.container { 
+  padding: 60rpx; 
+  background-color: #ffffff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 标题居中 */
+.title { 
+  font-size: 48rpx; 
+  font-weight: bold; 
+  margin-bottom: 80rpx; 
+  color: #333; 
+  text-align: center; 
+}
+
+/* 表单组 */
+.form-group {
+  margin-bottom: 60rpx;
+}
+
+/* 输入框单项：下划线风格 */
+.input-item { 
+  border-bottom: 1rpx solid #eee; 
+  padding: 30rpx 0; 
+  margin-bottom: 10rpx; 
+}
+
+.input-item input { 
+  font-size: 32rpx; 
+  width: 100%; 
+  color: #333;
+}
+
+/* 下一步按钮：微信风格（白底黑字/浅灰底） */
+.btn-submit { 
+  width: 100% !important; 
+  background: #f2f2f2 !important; 
+  color: #333333 !important; 
+  border-radius: 12rpx; 
+  margin-top: 40rpx; 
+  height: 96rpx; 
+  font-weight: 600;
+  font-size: 32rpx;
+  
+  /* 确保文字完美居中 */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 !important;
+}
+
+.btn-submit:active {
+  background-color: #e5e5e5 !important;
+}
+/* 复用之前的样式 */
+.password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* 确保底边框样式与普通的 input-item 一致 */
+}
+
+.password-input {
+  flex: 1;
+  font-size: 32rpx;
+}
+
+.eye-btn {
+  padding: 0 20rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}

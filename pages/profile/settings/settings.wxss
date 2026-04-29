@@ -1,0 +1,80 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.container {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  /* 底部留白，防止内容过多时被固定的 tips 遮挡 */
+  padding-bottom: 120rpx; 
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  display: block;
+  margin: 40rpx auto 40rpx auto;
+  width: 100%;
+}
+
+.menu-list {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  padding: 0 32rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+
+.current-value {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 12rpx;
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: #ccc;
+  font-family: consolas;
+}
+
+.tips {
+  /* 重点：固定定位 */
+  position: fixed;
+  bottom: 50rpx; 
+  left: 0;
+  right: 0;
+  
+  font-size: 24rpx;
+  color: #bbb;
+  text-align: center;
+  /* 适配苹果刘海屏底部安全区域 */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.menu-item:active {
+  background-color: #fafafa;
+}

@@ -1,0 +1,6 @@
+<view class="legal-container">
+  <view class="legal-title">{{title}}</view>
+  <scroll-view scroll-y class="legal-scroll">
+    <text class="legal-content" user-select>{{content}}</text>
+  </scroll-view>
+</view>

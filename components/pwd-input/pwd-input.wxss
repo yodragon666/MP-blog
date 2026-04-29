@@ -1,0 +1,9 @@
+.password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee; /* 统一底边框 */
+  padding: 20rpx 0;
+}
+.password-input { flex: 1; font-size: 32rpx; }
+.eye-btn { padding: 0 20rpx; display: flex; align-items: center; }

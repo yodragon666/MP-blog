@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="title">账号登录</view>
+
+  <view class="form-group">
+    <view class="input-item">
+      <input 
+        type="text" 
+        placeholder="请输入手机号或邮箱" 
+        value="{{account}}"
+        bindinput="onAccountInput"
+      />
+    </view>
+
+    <view class="input-item password-wrap">
+      <input 
+        password="{{!isPasswordVisible}}" 
+        placeholder="请输入密码" 
+        value="{{password}}"
+        bindinput="onPasswordInput"
+        class="password-input"
+      />
+      <view class="eye-btn" bindtap="togglePasswordVisible">
+        <image 
+        src="{{isPasswordVisible ? '/assets/icons/eye-open.png' : '/assets/icons/eye-close.png'}}" 
+        mode="aspectFit" 
+        style="width: 40rpx; height: 40rpx;"
+        />
+      </view>
+    </view>
+  </view>
+
+  <button class="btn-submit" bindtap="handleLogin">登录</button>
+
+  <view class="link-group">
+    <text class="link" bindtap="goToForgetPwd">忘记密码？</text>
+    <text class="link register-link" bindtap="goToRegister">没有账户？立即注册</text>
+  </view>
+</view>

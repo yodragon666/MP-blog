@@ -1,0 +1,222 @@
+page {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* 全局透明遮罩，用于关闭菜单 */
+.mask-layer {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 90;
+}
+
+/* ===== 1. 顶部 Header 区 (已修改为居中) ===== */
+.header-section {
+  background: #ffffff;
+  padding: 40rpx 40rpx; /* 稍微增加了上下间距 */
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 关键：子元素水平居中 */
+  position: relative;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center; /* 标题容器居中 */
+  align-items: center;
+  width: 100%;
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 关键：文字和蓝线垂直轴居中 */
+}
+
+.big-status-title {
+  font-size: 48rpx; /* 稍微调大了一点点 */
+  font-weight: 800;
+  color: #202124;
+  letter-spacing: 2rpx;
+  line-height: 1;
+}
+
+.sub-header-line {
+  width: 50rpx; /* 蓝线稍微加长一点配合大标题 */
+  height: 6rpx;
+  background: #4285F4;
+  margin-top: 16rpx; 
+  border-radius: 3rpx;
+}
+
+/* 顶部 More 按钮容器 (保持右侧绝对定位) */
+.more-container {
+  position: absolute;
+  right: 30rpx;
+  top: 45rpx;
+  z-index: 100;
+}
+.more-icon {
+  width: 48rpx;
+  height: 48rpx;
+  padding: 10rpx;
+}
+
+/* ===== 2. 悬浮菜单 (通用) ===== */
+.popup-menu {
+  position: absolute;
+  top: 70rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.12);
+  width: 220rpx;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+.right-menu { right: 0; }
+.left-menu { left: 0; top: 80rpx; } 
+
+.menu-item {
+  padding: 26rpx 30rpx;
+  font-size: 28rpx;
+  color: #202124;
+  border-bottom: 1rpx solid #f1f3f4;
+  text-align: center;
+}
+.menu-item:last-child { border-bottom: none; }
+.menu-item:active { background: #f8f9fa; }
+.active-menu { color: #4285F4; font-weight: bold; background: #e8f0fe; }
+
+/* ===== 3. 统计/筛选卡片 ===== */
+.post-list { padding: 30rpx; }
+
+.archive-card-header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 25rpx 35rpx; 
+  margin-bottom: 25rpx; 
+  background: #ffffff;
+  border-radius: 28rpx;
+}
+
+.filter-trigger { 
+  display: flex; 
+  align-items: center; 
+  position: relative; 
+  z-index: 100;
+}
+.blue-line { 
+  width: 8rpx; height: 32rpx; background-color: #4285F4; 
+  border-radius: 4rpx; margin-right: 18rpx; 
+}
+.archive-label { font-size: 26rpx; color: #9aa0a6; }
+.archive-value { font-size: 28rpx; font-weight: bold; color: #4285F4; margin-left: 8rpx; }
+.arrow-down { font-size: 22rpx; color: #4285F4; margin-left: 10rpx; transition: 0.3s; }
+.rotate { transform: rotate(180deg); }
+
+.archive-count { font-size: 24rpx; color: #9aa0a6; }
+.count-number { font-weight: bold; color: #4285F4; font-size: 32rpx; }
+
+/* ===== 4. 消息卡片 (已调整：稍微变大) ===== */
+.msg-card {
+  background: #ffffff; 
+  border-radius: 28rpx; /* 圆角稍微调圆了一点配合变大的卡片 */
+  padding: 35rpx 32rpx;  /* 增加了内边距，使卡片看起来更大 */
+  margin-bottom: 25rpx; /* 间距稍微加大 */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  min-height: 120rpx;    /* 确保卡片有足够的存在感 */
+}
+
+.msg-card:active {
+  transform: scale(0.98);
+  background: #fafafa;
+}
+
+.msg-unread {
+  box-shadow: 0 4rpx 20rpx rgba(66, 133, 244, 0.1); 
+}
+.msg-read {
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+  opacity: 0.75;
+}
+
+.unread-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10rpx; /* 稍微加粗一点点 */
+  background: #4285F4;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx; /* 间距拉开一点 */
+}
+
+.msg-type-box {
+  display: flex;
+  align-items: center;
+}
+
+.dot { width: 14rpx; height: 14rpx; border-radius: 50%; margin-right: 12rpx; }
+.blue-dot { background: #4285F4; box-shadow: 0 0 8rpx rgba(66,133,244,0.4); }
+
+/* 类型文字（如：账号安全）变大 */
+.msg-type-text {
+  font-size: 30rpx; /* 调大了，原为 26rpx */
+  font-weight: bold;
+  color: #202124;
+}
+.msg-read .msg-type-text { font-weight: normal; color: #5f6368; }
+
+.msg-time {
+  font-size: 24rpx; /* 调大了一点 */
+  color: #bdc1c6;
+}
+
+/* 消息正文 */
+.msg-content {
+  font-size: 28rpx;
+  color: #5f6368;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 26rpx; 
+}
+
+.msg-unread .msg-content {
+  color: #202124;
+  font-weight: 500;
+}
+
+/* ===== 5. 底部加载状态与空状态 ===== */
+.loading-status {
+  text-align: center;
+  padding: 40rpx 0 60rpx;
+  font-size: 24rpx;
+  color: #9aa0a6;
+}
+.no-more { color: #bdc1c6; }
+
+.empty-box { 
+  margin-top: 150rpx; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+.empty-img { width: 180rpx; height: 180rpx; margin-bottom: 20rpx; opacity: 0.5; }
+.empty-text { font-size: 28rpx; color: #bdc1c6; }
+.delete-text { color: #EA4335; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}

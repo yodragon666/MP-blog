@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="title">重置密码</view>
+
+  <view class="form-group">
+    <view class="input-item password-wrap">
+      <input 
+        password="{{!isPasswordVisible1}}" 
+        placeholder="请输入新密码" 
+        value="{{password}}"
+        bindinput="onPasswordInput"
+        class="password-input"
+      />
+      <view class="eye-btn" bindtap="togglePasswordVisible1">
+        <image 
+          src="{{isPasswordVisible1 ? '/assets/icons/eye-open.png' : '/assets/icons/eye-close.png'}}" 
+          mode="aspectFit" 
+          style="width: 40rpx; height: 40rpx;"
+        />
+      </view>
+    </view>
+
+    <view class="input-item password-wrap">
+      <input 
+        password="{{!isPasswordVisible2}}" 
+        placeholder="请确认新密码" 
+        value="{{password1}}"
+        bindinput="onPassword1Input"
+        class="password-input"
+      />
+      <view class="eye-btn" bindtap="togglePasswordVisible2">
+        <image 
+          src="{{isPasswordVisible2 ? '/assets/icons/eye-open.png' : '/assets/icons/eye-close.png'}}" 
+          mode="aspectFit" 
+          style="width: 40rpx; height: 40rpx;"
+        />
+      </view>
+    </view>
+  </view>
+
+  <button class="btn-submit" bindtap="handleReset">确定</button>
+</view>

@@ -1,0 +1,132 @@
+<view wx:if="{{isReady}}" class="page-container">
+  <view class="header-section">
+    <view class="logo-wrapper">
+      <view class="logo-area">
+        <text class="logo-text blue">轻</text>
+        <text class="logo-text green">博</text>
+        <text class="logo-text red">客</text>
+      </view>
+      <view class="message-entry" bindtap="goToMessages">
+        <image class="message-icon" src="/assets/icons/message.png" mode="aspectFit"></image>
+        <!-- 确保显示红点 -->
+        <view class="badge" wx:if="{{unreadCount > 0}}">{{unreadCount > 99 ? '99+' : unreadCount}}</view>
+      </view>
+    </view>
+    
+    <view class="search-bar">
+      <icon type="search" size="16" color="#9aa0a6"></icon>
+      <input 
+        class="search-input" 
+        placeholder="搜索感兴趣的内容..." 
+        placeholder-style="color:#9aa0a6"
+        value="{{keyword}}"
+        confirm-type="search"
+        bindconfirm="onSearch"
+        bindinput="onInput"
+      />
+      <icon 
+        wx:if="{{keyword}}" 
+        class="clear-icon" 
+        type="clear" 
+        size="18" 
+        color="#bdc1c6" 
+        bindtap="onClearSearch"
+      ></icon>
+    </view>
+  </view>
+
+  <scroll-view class="category-scroll" scroll-x enable-flex scroll-with-animation>
+    <view class="category-item {{currentId == 0 ? 'active' : ''}}" bindtap="tabCategory" data-id="0">全部</view>
+    <view 
+      wx:for="{{categoryList}}" 
+      wx:key="id" 
+      class="category-item {{currentId == item.id ? 'active' : ''}}" 
+      bindtap="tabCategory" 
+      data-id="{{item.id}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <view class="post-list">
+    <!-- 修改文章加载判断 -->
+    <block wx:if="{{keyword || currentId != 0}}">
+      <view class="post-card archive-card-header">
+        <view class="header-left">
+          <view class="blue-line"></view>
+          <block wx:if="{{keyword}}">
+            <text class="archive-label">关键词：</text>
+            <text class="archive-value">{{keyword}}</text>
+          </block>
+          <block wx:if="{{currentId != 0}}">
+            <text class="archive-label" style="{{keyword ? 'margin-left:20rpx;' : ''}}">分类：</text>
+            <text class="archive-value">{{currentCategoryName}}</text>
+          </block>
+        </view>
+        <view class="header-right">
+          <view class="archive-count">
+            <text>共 </text>
+            <text class="count-number">{{total || 0}}</text>
+            <text> 篇</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 文章列表 -->
+    <block wx:if="{{postList.length > 0}}">
+      <view 
+        class="post-card" 
+        wx:for="{{postList}}" 
+        wx:key="id" 
+        bindtap="goToDetail" 
+        data-id="{{item.id}}">
+        <view class="post-title">{{item.title}}</view>
+        <view class="post-info">
+          <view class="info-inner">
+            <view class="dot blue-dot"></view>
+            <text class="info-text">{{item.author}}</text>
+          </view>
+          <view class="info-inner">
+            <view class="dot green-dot"></view>
+            <text class="info-text">{{item.publish_time}}</text>
+          </view>
+          <view class="info-inner">
+            <view class="dot red-dot"></view>
+            <text class="info-text">{{item.pv}} 阅读</text>
+          </view>
+        </view>
+        <view class="post-desc">{{item.desc}}</view>
+      </view>
+
+      <view class="load-more-status">
+        <view wx:if="{{page < totalPage}}" class="loading-inline">
+          <view class="dot-jump"></view>
+          <text>正在加载更多...</text>
+        </view>
+        <text wx:else class="no-more">已加载全部文章</text>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="empty-box">
+        <image src="/assets/icons/nothings.png" class="empty-img" mode="aspectFit" />
+        <view class="empty-text">暂无内容</view>
+        <view class="empty-sub">{{keyword ? '换个关键词试试吧' : '该分类暂无文章'}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="fab-btn" bindtap="goToAddPost">
+    <text class="fab-icon">+</text>
+  </view>
+</view>
+
+<view wx:else class="loading-full-screen">
+  <view class="loading-content">
+    <image class="loading-logo" src="/assets/logo.png" mode="aspectFit"></image>
+    <view class="loading-bar">
+      <view class="loading-line"></view>
+    </view>
+    <text class="loading-hint">正在加载中</text>
+  </view>
+</view>

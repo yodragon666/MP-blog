@@ -1,0 +1,198 @@
+page {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* ===== 顶部 ===== */
+.header {
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+}
+
+.logo {
+  font-size: 52rpx;
+  font-weight: 900;
+  margin: 0 4rpx;
+}
+.blue { color: #4285F4; }
+.green { color: #34A853; }
+.red { color: #EA4335; }
+
+/* ===== 标题 ===== */
+.archive-title {
+  text-align: center;
+  font-size: 26rpx;
+  color: #5f6368;
+  margin-bottom: 20rpx;
+}
+
+/* ===== 复用首页卡片 ===== */
+.post-list {
+  padding: 25rpx 30rpx;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 35rpx;
+  margin-bottom: 25rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.04);
+}
+
+.post-card:active {
+  transform: scale(0.98);
+  background-color: #fafafa;
+}
+
+.post-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #4285F4;
+  margin-bottom: 18rpx;
+}
+
+/* 信息 */
+.post-info {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-inner {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.blue-dot { background: #4285F4; }
+.green-dot { background: #34A853; }
+.red-dot { background: #EA4335; }
+
+.info-text {
+  font-size: 24rpx;
+  color: #9aa0a6;
+}
+
+/* 描述 */
+.post-desc {
+  font-size: 28rpx;
+  color: #5f6368;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
+  overflow: hidden;
+}
+
+/* ===== 分页（统一风格）===== */
+.pagination {
+  display: flex;
+  flex-direction: row; /* 强制水平排列 */
+  justify-content: center;
+  align-items: center;
+  gap: 30rpx;
+  padding: 50rpx 0;
+}
+
+.page-btn {
+  /* 彻底重置微信默认背景 */
+  background: #ffffff !important;
+  color: #4285F4 !important;
+  
+  /* 形状：胶囊状 */
+  height: 80rpx !important;
+  line-height: 80rpx !important;
+  border-radius: 40rpx !important; 
+  
+  /* 边框 */
+  border: 2rpx solid #4285F4 !important;
+  
+  /* 字体与间距 */
+  font-size: 28rpx !important;
+  font-weight: 500 !important; /* 增加 500 粗细 */
+  padding: 0 45rpx !important;
+  margin: 0 !important;
+  
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 移除默认黑边 */
+.page-btn::after {
+  border: none !important;
+}
+
+/* 禁用状态 */
+.page-btn[disabled] {
+  color: #bdc1c6 !important;
+  border-color: #eee !important;
+  background: #fafafa !important;
+}
+
+/* 中间页码：确保是一行文字且颜色一致 */
+.page-info {
+  font-size: 28rpx;
+  color: #5f6368;
+  white-space: nowrap; /* 强制不换行 */
+}
+
+/* 空状态 */
+.empty-box {
+  margin-top: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9aa0a6;
+}
+
+.empty-img {
+  width: 220rpx;
+  height: 220rpx;
+  margin-bottom: 20rpx;
+}
+/* ✅ 归档头部特有样式 */
+/* ✅ 归档头部特有样式 */
+.archive-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx !important; 
+  /* 设置为 25rpx，这样头卡片和第一篇文章的距离，就等于文章和文章之间的距离 */
+  margin-bottom: 25rpx !important; 
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.blue-line {
+  width: 8rpx;
+  height: 32rpx;
+  background-color: #4285F4;
+  border-radius: 4rpx;
+  margin-right: 18rpx;
+}
+
+.archive-label {
+  font-size: 26rpx;
+  color: #9aa0a6;
+}
+
+.archive-value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #202124;
+}
+
+.archive-count {
+  font-size: 26rpx;
+  color: #9aa0a6;
+}

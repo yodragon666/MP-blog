@@ -1,0 +1,84 @@
+.container { 
+  padding: 60rpx; 
+  background-color: #ffffff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.title { 
+  font-size: 48rpx; 
+  font-weight: bold; 
+  margin-bottom: 80rpx; 
+  color: #333; 
+  text-align: center; 
+}
+
+.form-group {
+  width: 100%;
+}
+
+.input-item {
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.input-item input {
+  font-size: 32rpx;
+  width: 100%;
+}
+
+/* 验证码布局容器 */
+.code-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 0;
+}
+
+.code-wrap input {
+  flex: 1;
+  font-size: 32rpx;
+}
+
+/* 获取验证码按钮：蓝色文字链接风格 */
+.btn-code {
+  background: transparent !important;
+  color: #576b95 !important;
+  font-size: 28rpx !important;
+  width: auto !important;
+  padding: 0 10rpx !important;
+  margin: 0 !important;
+  font-weight: 500;
+  border: none !important;
+}
+
+.btn-code::after {
+  border: none;
+}
+
+.btn-code[disabled] {
+  color: #ccc !important;
+  background: transparent !important;
+}
+
+/* 灰色提交按钮 */
+.btn-submit { 
+  width: 100% !important; 
+  background: #f2f2f2 !important; 
+  color: #333333 !important; 
+  border-radius: 12rpx; 
+  margin-top: 80rpx; 
+  height: 96rpx; 
+  font-weight: 600;
+  font-size: 32rpx;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 !important;
+}
+
+.btn-submit:active {
+  background-color: #e5e5e5 !important;
+}

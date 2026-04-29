@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/login/account_login",
+    "pages/profile/profile",
+    "pages/login/register/register_step1",
+    "pages/login/register/register_step2",
+    "pages/login/forgetpwd/forgetpwd_step1",
+    "pages/login/forgetpwd/forgetpwd_step2",
+    "pages/profile/completeprofile",
+    "pages/profile/hasaccount",
+    "pages/profile/profilesecurity/profilesecurity",
+    "pages/profile/deleteprofile/deleteprofile",
+    "components/pwd-input/pwd-input",
+    "pages/profile/changeemail/changeemail_step1",
+    "pages/profile/changeemail/changeemail_step2",
+    "pages/profile/changepassword/changepassword",
+    "pages/profile/editprofile/editprofile",
+    "pages/profile/myprofile/myprofile",
+    "pages/feature/feature",
+    "pages/search/search",
+    "pages/postdetail/postdetail",
+    "pages/search/archives/archives",
+    "pages/addpost/addpost",
+    "pages/profile/myposts/myposts",
+    "pages/profile/myposts/myposts_list/myposts_list",
+    "pages/profile/mymessages/mymessages",
+    "pages/profile/mylike/mykile",
+    "pages/profile/myfavorite/myfavorite",
+    "pages/profile/settings/settings",
+    "pages/profile/settings/legal/legal",
+    "pages/profile/mymessages/messagedetail/messagedetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#fa5151",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/index.png",
+        "selectedIconPath": "assets/tabbar/index_pressed.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "assets/tabbar/search.png",
+        "selectedIconPath": "assets/tabbar/search_pressed.png"
+      },
+      {
+        "pagePath": "pages/feature/feature",
+        "text": "专题",
+        "iconPath": "assets/tabbar/feature.png",
+        "selectedIconPath": "assets/tabbar/feature_pressed.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tabbar/home.png",
+        "selectedIconPath": "assets/tabbar/home_pressed.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "pwd-input": "/components/pwd-input/pwd-input"
+  }
+}

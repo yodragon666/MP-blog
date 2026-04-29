@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="title">绑定已有账户</view>
+
+  <view class="form-group">
+    <view class="input-item">
+      <input 
+        type="text" 
+        placeholder="请输入手机号或邮箱" 
+        value="{{account}}"
+        bindinput="onAccountInput"
+      />
+    </view>
+
+    <view class="input-item password-wrap">
+      <input 
+        password="{{!isPasswordVisible}}" 
+        placeholder="请输入账号密码" 
+        value="{{password}}"
+        bindinput="onPasswordInput"
+        class="password-input"
+      />
+      <view class="eye-btn" bindtap="togglePasswordVisible">
+        <image 
+          src="{{isPasswordVisible ? '/assets/icons/eye-open.png' : '/assets/icons/eye-close.png'}}" 
+          mode="aspectFit" 
+          style="width: 40rpx; height: 40rpx;"
+        />
+      </view>
+    </view>
+  </view>
+
+  <button class="btn-submit" bindtap="handleMerge">立即绑定</button>
+
+  <view class="link-group">
+    <text class="link" bindtap="goToForgetPwd">忘记密码？</text>
+    <text class="link register-link" bindtap="goToLogin">没有账号？立即注册</text>
+  </view>
+</view>

@@ -1,0 +1,291 @@
+/* 全局背景色 */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* 容器：左右预留 30rpx 留白，内部组件 100% 宽度即可自动对齐 */
+.container {
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* === 1. 用户卡片样式 === */
+.user-card {
+  width: 100%;          /* 统一宽度 */
+  margin: 25rpx 0 0 0;  /* 顶部间距 25rpx */
+  background-color: #ffffff;
+  border-radius: 28rpx; /* 还原原始圆角 */
+  padding: 50rpx 40rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #eee;
+  flex-shrink: 0;
+}
+
+.avatar:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+
+.info-box {
+  flex: 1;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nickname {
+  font-size: 36rpx;      /* 还原原始字号 */
+  font-weight: 600;      /* 还原原始粗细 */
+  color: #333;           /* 还原原始颜色 */
+  margin-bottom: 12rpx;
+}
+
+.signature {
+  font-size: 26rpx;      /* 还原原始字号 */
+  color: #888;           /* 还原原始颜色 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.edit-btn {
+  font-size: 26rpx;
+  color: #576b95;        /* 还原原始蓝色 */
+  padding: 10rpx 0 10rpx 20rpx;
+}
+
+.arrow {
+  font-family: consolas;
+  margin-left: 4rpx;
+}
+
+/* === 2. 功能列表样式 === */
+.menu-list {
+  width: 100%;          /* 统一宽度 */
+  margin-top: 25rpx;    /* 板块间距 25rpx */
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  padding: 0 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+  background-color: transparent;
+  width: 100%;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 24rpx;
+}
+
+.menu-title {
+  font-size: 30rpx;      /* 还原原始字号 */
+  color: #333;           /* 还原原始颜色 */
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: #ccc;
+  font-family: consolas;
+}
+
+/* 兼容 button 的原生样式清除 */
+.contact-item {
+  margin: 0 !important;
+  padding: 40rpx 0 !important;
+  font-weight: normal !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  border-radius: 0 !important;
+  display: flex !important; 
+  width: 100% !important;
+}
+
+.contact-item::after {
+  border: none;
+}
+
+.menu-item:active {
+  opacity: 0.7;
+}
+
+/* === 3. 退出登录按钮 === */
+.logout-btn {
+  width: 100%;          /* 统一宽度 */
+  background-color: #ffffff;
+  color: #fa5151;        /* 还原原始红色 */
+  border-radius: 24rpx;
+  margin-top: 25rpx;    /* 间距 25rpx */
+  padding: 36rpx 0;
+  text-align: center;
+  font-size: 32rpx;      /* 还原原始字号 */
+  font-weight: 500;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  margin-bottom: 50rpx; 
+}
+
+.logout-btn:active {
+  background-color: #f2f2f2;
+}
+
+/* === 4. 登录引导样式 === */
+.login-guide {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.guide-header {
+  margin-top: 160rpx;
+  text-align: center;
+  margin-bottom: 130rpx;
+}
+
+.guide-img {
+  width: 320rpx;
+  height: 320rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.guide-desc {
+  font-size: 26rpx;
+  color: #888;
+  margin-top: -20rpx;
+}
+
+.guide-content {
+  flex: 1;
+}
+
+.go-login-btn {
+  width: 100% !important;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  background-color: #07c160 !important;
+  color: #ffffff !important;
+}
+
+.guide-footer {
+  padding-bottom: 150rpx;
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.login-tips {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 辅助背景 */
+.bg-gray { background-color: #f7f8fa; }
+.bg-white { background-color: #ffffff; }
+
+/* === 5. 优雅加载态样式 === */
+.loading-full-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.loading-logo {
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 40rpx;
+  opacity: 0.8;
+  animation: breathe 2s infinite ease-in-out;
+}
+
+.loading-bar {
+  width: 240rpx;
+  height: 4rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-line {
+  width: 100rpx;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #576b95, transparent);
+  position: absolute;
+  left: -100rpx;
+  animation: flow 1.5s infinite linear;
+}
+
+.loading-hint {
+  font-size: 24rpx;
+  color: #bbbbbb;
+  margin-top: 24rpx;
+  letter-spacing: 2rpx;
+}
+
+/* --- 动画定义 --- */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes flow {
+  0% { left: -100rpx; }
+  100% { left: 240rpx; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}

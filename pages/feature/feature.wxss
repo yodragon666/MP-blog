@@ -1,0 +1,186 @@
+page {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* 头部 */
+.header-section {
+  background: #ffffff;
+  padding: 25rpx 40rpx 30rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-area { margin-bottom: 10rpx; }
+.logo-text { font-size: 52rpx; font-weight: 900; margin: 0 4rpx; }
+.blue { color: #4285F4; }
+.green { color: #34A853; }
+.red { color: #EA4335; }
+
+.post-list { padding: 30rpx; }
+
+/* 基础卡片 */
+.card, .post-card {
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 35rpx;
+  margin-bottom: 25rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.04);
+}
+
+.card-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #202124;
+  border-left: 8rpx solid #4285F4;
+  padding-left: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+/* --- 标签网格：未选中状态更显眼 --- */
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.tag-item {
+  padding: 16rpx 32rpx;
+  background: #f1f3f4; /* 稍微加深底色 */
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  color: #202124; /* 字体更黑更显眼 */
+  font-weight: 500;
+  border: 2rpx solid #e8eaed; /* 增加细微边框 */
+  transition: all 0.2s ease;
+}
+.tag-item.active {
+  background: #e8f0fe;
+  color: #4285F4;
+  border-color: #4285F4;
+}
+
+/* --- 已选池样式：换行往下堆，统一圆角 --- */
+.selected-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+.selected-tag {
+  padding: 16rpx 32rpx;
+  background: #34A853; /* 保持绿色 */
+  color: #fff;
+  border-radius: 40rpx; /* 和上面的标签库保持一致的圆角 */
+  font-size: 28rpx;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(52, 168, 83, 0.2); /* 微微加点质感 */
+}
+.tag-close { margin-left: 12rpx; font-size: 24rpx; opacity: 0.8; }
+
+/* 确认按钮 */
+.confirm-btn {
+  background: #4285F4 !important;
+  color: #fff !important;
+  border-radius: 44rpx !important;
+  font-size: 30rpx !important;
+  font-weight: bold !important;
+  box-shadow: 0 8rpx 24rpx rgba(66, 133, 244, 0.3) !important;
+  margin-top: 10rpx;
+  height: 88rpx !important;
+  line-height: 88rpx !important;
+  padding: 0 !important;
+}
+
+/* --- 结果列表头部 --- */
+.archive-card-header { display: flex; justify-content: space-between; align-items: center; }
+.header-left { display: flex; align-items: center; }
+.blue-line { width: 8rpx; height: 32rpx; background-color: #4285F4; border-radius: 4rpx; margin-right: 18rpx; }
+.archive-label { font-size: 28rpx; color: #5f6368; }
+/* 数字加黑加粗 */
+.bold-count { font-weight: 900; color: #000; font-size: 32rpx; margin: 0 6rpx; } 
+.re-select { color: #4285F4; font-size: 28rpx; font-weight: 500; }
+
+.post-title { font-size: 36rpx; font-weight: bold; color: #4285F4; margin-bottom: 18rpx; }
+.post-info { display: flex; gap: 24rpx; margin-bottom: 20rpx; }
+.info-inner { display: flex; align-items: center; }
+.dot { width: 14rpx; height: 14rpx; border-radius: 50%; margin-right: 10rpx; }
+.blue-dot { background: #4285F4; }
+.green-dot { background: #34A853; }
+.red-dot { background: #EA4335; }
+.info-text { font-size: 24rpx; color: #9aa0a6; }
+.post-desc { font-size: 28rpx; color: #5f6368; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* --- 严格复刻首页的分页样式 --- */
+.pagination { display: flex; justify-content: center; align-items: center; gap: 30rpx; padding: 50rpx 0; }
+.page-btn {
+  background: #ffffff !important; color: #4285F4 !important;
+  height: 80rpx !important; line-height: 80rpx !important;
+  border-radius: 40rpx !important; border: 2rpx solid #4285F4 !important;
+  font-size: 28rpx !important; font-weight: 500 !important; padding: 0 45rpx !important;
+}
+/* 无法点击时的样式 */
+.page-btn[disabled] { 
+  color: #bdc1c6 !important; 
+  border-color: #eee !important; 
+  background: #fafafa !important; 
+}
+.page-info { font-size: 28rpx; color: #5f6368; white-space: nowrap; }
+
+/* 空状态页调整组合按钮的边距修饰 */
+.adjust-btn { margin-top: 40rpx; }
+
+/* 空状态 */
+.empty-box { display: flex; flex-direction: column; align-items: center; padding: 60rpx 0; }
+.empty-img { width: 200rpx; height: 200rpx; margin-bottom: 20rpx;}
+.empty-text { font-size: 30rpx; font-weight: 600; color: #5f6368; }
+.empty-sub { font-size: 24rpx; color: #9aa0a6; margin-top: 10rpx; }
+
+/* 加载动画 */
+.loading-full-screen { height: 100vh; display: flex; justify-content: center; align-items: center; background: #fff; }
+.loading-bar { width: 240rpx; height: 4rpx; background: #f1f3f4; border-radius: 4rpx; overflow: hidden; position: relative; }
+.loading-line { width: 100rpx; height: 100%; background: linear-gradient(90deg, transparent, #4285F4, transparent); position: absolute; left: -100rpx; animation: flow 1.5s infinite linear; }
+@keyframes flow { 0% { left: -100rpx; } 100% { left: 240rpx; } }
+.loading-hint { font-size: 24rpx; color: #9aa0a6; margin-top: 24rpx; letter-spacing: 2rpx; }
+/* --- 已选标签卡片特有样式 --- */
+.card {
+  position: relative; /* 必须设为 relative，方便右上角按钮定位 */
+}
+
+.clear-all {
+  position: absolute;
+  top: 35rpx;     /* 与 card-title 的顶部对齐 */
+  right: 35rpx;   /* 与 card 的内边距对齐 */
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0 10rpx 20rpx; /* 增加点击热区 */
+  z-index: 10;
+}
+
+.clear-all:active {
+  opacity: 0.7;
+}
+
+.clear-all-text {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-left: 6rpx;
+  font-weight: 500;
+}
+
+/* 之前已选标签的样式保持不变 */
+.selected-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+  margin-top: 10rpx;
+}
+.fab-btn {
+  position: fixed; right: 40rpx; bottom: calc(50rpx + env(safe-area-inset-bottom));
+  width: 110rpx; height: 110rpx; background-color: #4285F4; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(66, 133, 244, 0.4); z-index: 99;
+}
+.fab-icon { color: #ffffff; font-size: 60rpx; font-weight: 300; margin-top: -6rpx; }

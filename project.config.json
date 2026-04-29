@@ -1,0 +1,9 @@
+{
+  "setting": {
+    "ignoreUploadUnusedFiles": false,
+    "enhance": true,
+    "es6": true,
+    "minified": true,
+    "uglifyFileName": true
+  }
+}

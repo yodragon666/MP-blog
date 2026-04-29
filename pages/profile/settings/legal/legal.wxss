@@ -1,0 +1,18 @@
+.legal-container {
+  padding: 40rpx 30rpx;
+  background: #fff;
+  min-height: 100vh;
+}
+.legal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.legal-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.8;
+  /* 关键：保留换行并自动折行 */
+  white-space: pre-wrap; 
+}

@@ -1,0 +1,63 @@
+<view class="page">
+  <view class="post-title-blue">{{post.title}}</view>
+
+  <view class="divider-line"></view>
+
+  <view class="author-card-pro">
+    <image class="avatar-large" src="{{post.author_avatar}}" mode="aspectFill"></image>
+    <view class="author-info">
+      <view class="nickname">{{post.author}}</view>
+      <view class="author-meta">
+        <text>{{post.publish_time}}</text>
+        <text>·</text>
+        <text>{{post.pv}} 阅读</text>
+        <text>·</text>
+        <text>{{post.like_count}} 点赞</text>
+        <text>·</text>
+        <text>{{post.favorite_count}} 收藏</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tags" wx:if="{{post.tags && post.tags.length}}">
+    <block wx:for="{{post.tags}}" wx:key="index">
+      <view class="tag" bindtap="onTagClick" data-tag="{{item}}">#{{item}}</view>
+    </block>
+  </view>
+
+  <view class="desc" wx:if="{{post.desc}}">
+    {{post.desc}}
+  </view>
+
+  <view class="content">
+    <mp-html content="{{post.content}}" selectable="true" lazy-load="true" tag-style="{{blogTheme}}" />
+  </view>
+
+  <view class="divider-line"></view>
+
+  <view class="simple-nav">
+    <view class="nav-link {{!prev ? 'disabled' : ''}}" bindtap="goPrev">
+      <text class="arrow">←</text> {{prev ? prev.title : '已经是第一篇了'}}
+    </view>
+    <view class="nav-link text-right {{!next ? 'disabled' : ''}}" bindtap="goNext">
+      {{next ? next.title : '已经是最后一篇了'}} <text class="arrow">→</text>
+    </view>
+  </view>
+
+  <view class="toolbar">
+    <view class="toolbar-left">
+      看完啦？去 <text class="home-link" bindtap="goHome">首页</text> 逛逛
+    </view>
+    <view class="toolbar-right">
+      <view class="action-item {{is_liked ? 'active-red' : ''}}" bindtap="handleLike">
+        <image src="/assets/icons/like.png" class="icon"></image>
+      </view>
+      <view class="action-item {{is_favorite ? 'active-red' : ''}}" bindtap="handleFavorite">
+        <image src="/assets/icons/favorite.png" class="icon"></image>
+      </view>
+      <button class="action-item share-btn" open-type="share">
+        <image src="/assets/icons/share.png" class="icon"></image>
+      </button>
+    </view>
+  </view>
+</view>
