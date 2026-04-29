@@ -1,66 +1,79 @@
-// pages/profile/mymessages/messagedetail/messagedetail.js
+import { request } from '../../../../utils/request';
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    msg: null,
+    typeMap: {
+      'system': '系统通知',
+      'post': '审核通知',
+      'like': '点赞通知',
+      'favorite': '收藏通知',
+      'account': '账号安全'
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
-
+    if (options.data) {
+      // 解析上一个页面传过来的数据
+      const msgData = JSON.parse(decodeURIComponent(options.data));
+      
+      // 因为点击进来的瞬间列表页已经触发了已读接口，所以这里为了体验直接展示为已读
+      msgData.is_read = true; 
+      
+      this.setData({ msg: msgData });
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 跳转到文章详情
+  goToPost() {
+    const postId = this.data.msg.post_id;
+    if (postId) {
+      wx.navigateTo({ 
+        url: `/pages/postdetail/postdetail?id=${postId}` 
+      });
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  // 删除该条消息
+  async handleDelete() {
+    wx.showModal({
+      title: '确认删除',
+      content: '删除后将无法恢复，是否继续？',
+      confirmColor: '#EA4335',
+      success: async (res) => {
+        if (res.confirm) {
+          try {
+            wx.showLoading({ title: '删除中...' });
+            await request({
+              url: '/api_blog/notificationsdelete',
+              method: 'POST',
+              data: { ids: [this.data.msg.id] }
+            });
+            wx.hideLoading();
+            wx.showToast({ title: '已删除', icon: 'success' });
 
-  },
+            // 核心逻辑：通知上一页（列表页）把这条数据删掉，防止返回后数据还在
+            const pages = getCurrentPages();
+            const prevPage = pages[pages.length - 2]; // 获取上一页实例
+            if (prevPage) {
+              const newList = prevPage.data.postList.filter(item => item.id !== this.data.msg.id);
+              prevPage.setData({
+                postList: newList,
+                total: Math.max(0, prevPage.data.total - 1)
+              });
+            }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+            // 延迟返回列表页
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 800);
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+          } catch (error) {
+            wx.hideLoading();
+            wx.showToast({ title: '删除失败', icon: 'none' });
+          }
+        }
+      }
+    });
   }
-})
+});

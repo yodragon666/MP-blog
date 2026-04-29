@@ -1,2 +1,51 @@
-<!--pages/profile/mymessages/messagedetail/messagedetail.wxml-->
-<text>pages/profile/mymessages/messagedetail/messagedetail.wxml</text>
+<view class="container">
+  <!-- 统一风格的居中大标题 -->
+  <view class="page-main-title">消息详情</view>
+
+  <view class="detail-card">
+    
+    <!-- ⭐ 顶部标题区：回归左上角，强化视觉 -->
+    <view class="card-header">
+      <view class="title-group">
+        <view class="blue-line"></view>
+        <text class="title-text">{{typeMap[msg.type] || '系统通知'}}</text>
+      </view>
+    </view>
+
+    <!-- 用户信息区 -->
+    <view class="user-info-section">
+      <image class="avatar" src="{{msg.actor_avatar || '/assets/icons/system-avatar.png'}}" mode="aspectFill"></image>
+      <view class="info-content">
+        <view class="name-box">
+          <text class="nickname">{{msg.actor_name || '系统助手'}}</text>
+          <view class="status-tag {{msg.is_read ? 'tag-read' : 'tag-unread'}}">
+            {{msg.is_read ? '已读' : '未读'}}
+          </view>
+        </view>
+        <text class="time">{{msg.created_at}}</text>
+      </view>
+    </view>
+
+    <!-- ⭐ 消息正文：左对齐，主体感增强 -->
+    <view class="msg-content-box">
+      <text class="content-text">{{msg.content}}</text>
+    </view>
+
+    <!-- 关联文章跳转：仅点赞或收藏显示 -->
+    <view class="post-link-box" wx:if="{{msg.type === 'like' || msg.type === 'favorite'}}" bindtap="goToPost">
+      <view class="link-left">
+        <text class="link-text"> <text class="highlight-blue">点击查看相关文章</text></text>
+      </view>
+      <text class="link-arrow">></text>
+    </view>
+
+    <!-- ⭐ 删除按钮：改为红色，并保持极简 -->
+    <view class="delete-btn-section" bindtap="handleDelete">
+      <view class="delete-btn-content">
+        <image class="delete-icon" src="/assets/icons/delete.png"></image>
+        <text class="delete-text-red">删除消息</text>
+      </view>
+    </view>
+
+  </view>
+</view>

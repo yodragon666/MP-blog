@@ -217,5 +217,21 @@ Page({
       wx.hideLoading();
       wx.showToast({ title: '删除失败', icon: 'none' });
     }
-  }
+  },
+  goToDetail(e) {
+    const { id, read } = e.currentTarget.dataset;
+    // 从列表中找出当前点击的消息完整对象
+    const msgItem = this.data.postList.find(item => item.id === id);
+
+    // 如果是未读，静默调用已读接口（不阻挡用户跳转）
+    if (!read) {
+      this.executeMarkRead([id]);
+    }
+
+    // 将对象转为字符串传递给详情页
+    const msgData = encodeURIComponent(JSON.stringify(msgItem));
+    wx.navigateTo({ 
+      url: `/pages/profile/mymessages/messagedetail/messagedetail?data=${msgData}` 
+    });
+  },
 });

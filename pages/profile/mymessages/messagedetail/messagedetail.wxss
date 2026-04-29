@@ -1,1 +1,181 @@
-/* pages/profile/mymessages/messagedetail/messagedetail.wxss */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+/* 居中大标题 */
+.page-main-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  display: block;
+  margin: 40rpx auto 40rpx auto;
+  width: 100%;
+}
+
+.detail-card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 40rpx 32rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  margin-bottom: 30rpx;
+}
+
+/* ⭐ 顶部标题区（左上角） */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36rpx; /* 与下方用户信息拉开间距 */
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+}
+
+.blue-line {
+  width: 8rpx;
+  height: 36rpx;
+  background-color: #4285F4;
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+}
+
+.title-text {
+  font-size: 40rpx; /* 大一点点 */
+  font-weight: bold;
+  color: #333;
+}
+
+/* 用户信息区 */
+.user-info-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #f1f3f4;
+  margin-right: 20rpx;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.name-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.status-tag {
+  font-size: 28rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+}
+.tag-unread {
+  background: #e8f0fe;
+  color: #4285F4;
+}
+.tag-read {
+  background: #f1f3f4;
+  color: #9aa0a6;
+}
+
+.time {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 4rpx;
+  display: block;
+}
+
+/* ⭐ 消息正文（左对齐，大空间） */
+.msg-content-box {
+  background: #f8f9fa; 
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 40rpx;
+}
+
+.content-text {
+  font-size: 32rpx;
+  color: #444;
+  line-height: 1.6;
+  word-wrap: break-word;
+  text-align: left; /* 强制左对齐，拒绝居中 */
+}
+
+/* 跳转文章按钮 */
+.post-link-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e8f0fe;
+  padding: 28rpx 32rpx;
+  border-radius: 16rpx;
+  margin-bottom: 40rpx;
+}
+
+.link-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.highlight-blue {
+  color: #4285F4;
+  font-weight: bold;
+}
+
+.link-arrow {
+  color: #4285F4;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* ⭐ 底部删除区 */
+.delete-btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30rpx;
+  border-top: 1rpx solid #f1f3f4;
+}
+
+.delete-btn-content {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn-content:active {
+  opacity: 0.6;
+}
+
+.delete-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.delete-text-red {
+  font-size: 28rpx;
+  color: #EA4335; /* 醒目的红色 */
+  font-weight: 500;
+}
