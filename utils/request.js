@@ -1,5 +1,7 @@
-const BASE_URL = 'https://unegoistical-elongative-cecile.ngrok-free.dev'; 
+//const BASE_URL = 'https://unegoistical-elongative-cecile.ngrok-free.dev'; 
 //const BASE_URL = 'http://127.0.0.1:8000'; 
+const BASE_URL = 'https://yodragon.cn'; 
+
 
 let isRefreshing = false; //是否正在刷新token 
 let requestsQueue = []; //等待队列 

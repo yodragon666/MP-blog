@@ -44,6 +44,7 @@ Page({
         url: `/api_blog/posts/${id}/`
       });
       const data = this.unwrap(res);
+      console.table('文章信息：',data.post)
       this.setData({
         post: data.post,
         prev: data.prev,
@@ -61,6 +62,27 @@ Page({
       this.setData({ isLoading: false });
       wx.hideLoading();
     }
+  },
+  // 预览头像方法
+  previewAvatar() {
+    // 1. 检查 post 数据是否存在（防御性判断）
+    if (!this.data.post) return;
+
+    // 2. 获取当前文章作者的头像路径
+    // 注意：这里使用的是 post.author_avatar 而不是之前代码里的 msg.actor_avatar
+    let url = this.data.post.author_avatar;
+
+    // 3. 如果没有头像，使用默认系统头像
+    if (!url) {
+      // 建议这里换成你服务器上的图片 URL，兼容性更好
+      url = '/assets/icons/system-avatar.png'; 
+    }
+
+    // 4. 执行预览
+    wx.previewImage({
+      current: url, 
+      urls: [url]
+    });
   },
 
   // 点赞逻辑

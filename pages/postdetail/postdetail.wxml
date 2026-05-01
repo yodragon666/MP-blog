@@ -4,7 +4,7 @@
   <view class="divider-line"></view>
 
   <view class="author-card-pro">
-    <image class="avatar-large" src="{{post.author_avatar}}" mode="aspectFill"></image>
+    <image class="avatar-large" src="{{post.author_avatar}}" mode="aspectFill" bindtap="previewAvatar"></image>
     <view class="author-info">
       <view class="nickname">{{post.author}}</view>
       <view class="author-meta">

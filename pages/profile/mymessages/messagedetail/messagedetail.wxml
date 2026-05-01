@@ -14,7 +14,11 @@
 
     <!-- 用户信息区 -->
     <view class="user-info-section">
-      <image class="avatar" src="{{msg.actor_avatar || '/assets/icons/system-avatar.png'}}" mode="aspectFill"></image>
+      <image class="avatar" 
+        src="{{msg.actor_avatar || '/assets/icons/system-avatar.png'}}" 
+        mode="aspectFill"
+        bindtap="previewAvatar"
+      ></image>
       <view class="info-content">
         <view class="name-box">
           <text class="nickname">{{msg.actor_name || '系统助手'}}</text>

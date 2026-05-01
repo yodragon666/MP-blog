@@ -33,6 +33,21 @@ Page({
       });
     }
   },
+  // 预览头像
+  previewAvatar() {
+    const avatarUrl = this.data.msg.actor_avatar;
+    
+    // 如果没有头像或者是默认本地路径，根据实际需求决定是否开启预览
+    // 一般来说，点击系统默认头像没必要放大，可以加个判断
+    if (!avatarUrl || avatarUrl.includes('/assets/icons/')) {
+      return;
+    }
+
+    wx.previewImage({
+      current: avatarUrl, // 当前显示图片的http链接
+      urls: [avatarUrl]   // 需要预览的图片http链接列表
+    });
+  },
 
   // 删除该条消息
   async handleDelete() {
