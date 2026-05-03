@@ -123,7 +123,7 @@
 
 <view wx:else class="loading-full-screen">
   <view class="loading-content">
-    <image class="loading-logo" src="/assets/logo.png" mode="aspectFit"></image>
+    <image class="loading-logo" src="https://yodragon.cn/media/images/logo.png" mode="aspectFit"></image>
     <view class="loading-bar">
       <view class="loading-line"></view>
     </view>

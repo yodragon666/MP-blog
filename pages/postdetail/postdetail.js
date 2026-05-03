@@ -24,8 +24,8 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.post.title,
-      path: `/pages/post/detail?id=${this.data.post.id}`,
-      imageUrl: '' // 如果有封面图可以加上
+      path: `/pages/postdetail/postdetail?id=${this.data.post.id}`,
+      imageUrl: "https://yodragon.cn/media/images/system_avatar.png"
     };
   },
 

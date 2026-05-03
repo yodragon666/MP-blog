@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <image class="logo" src="/assets/logo.png" mode="aspectFit"></image>
+    <image class="logo" src="https://yodragon.cn/media/images/logo.png" mode="aspectFit"></image>
   </view>
 
   <view class="content">

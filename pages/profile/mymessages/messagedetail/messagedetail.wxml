@@ -15,7 +15,7 @@
     <!-- 用户信息区 -->
     <view class="user-info-section">
       <image class="avatar" 
-        src="{{msg.actor_avatar || '/assets/icons/system-avatar.png'}}" 
+        src="{{msg.actor_name ? msg.actor_avatar : 'https://yodragon.cn/media/images/system-avatar.png'}}" 
         mode="aspectFill"
         bindtap="previewAvatar"
       ></image>
