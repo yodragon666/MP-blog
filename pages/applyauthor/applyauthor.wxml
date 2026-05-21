@@ -1,0 +1,25 @@
+<view class="container">
+  <!-- 顶部标题与描述 -->
+  <view class="header-section">
+    <view class="header-title">申请创作者权限</view>
+  </view>
+
+  <!-- 主卡片：输入区域 -->
+  <view class="main-card">
+    <view class="textarea-section">
+      <view class="info-label textarea-label">申请理由</view>
+      <textarea
+        class="reason-input"
+        placeholder="请输入申请理由（200字以内）"
+        placeholder-class="placeholder-style"
+        maxlength="200"
+        bindinput="onInput"
+      />
+    </view>
+  </view>
+
+  <!-- 底部固定间距按钮 -->
+  <view class="save-btn-container">
+    <button class="action-btn-submit" bindtap="submitApply">提交申请</button>
+  </view>
+</view>

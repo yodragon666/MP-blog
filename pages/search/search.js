@@ -16,8 +16,11 @@ Page({
     total: 0,
     isLoading: false,
     hasSearched: false,
+    isReviewed:false,
   },
-
+  onLoad(){
+    this.getAppStatus();
+  },
   onShow() {
     this.getSidebar();
     console.log('requireLogin:', requireLogin)
@@ -213,8 +216,60 @@ Page({
     wx.stopPullDownRefresh();
   },
   goToAddPost() {
-    requireLogin(() => {
-      wx.navigateTo({ url: '/pages/addpost/addpost' });
+    requireLogin(async () => {
+      try{
+        const res = await request({
+          url:'/api/checkauthor/',
+          method:'GET'
+        });
+        console.log('当前用户权限：',res.data.is_author);
+        //有发布权限
+        if(res.data.is_author){
+          wx.navigateTo({
+            url:'/pages/addpost/addpost'
+          });
+        }
+        //已经提交申请
+        else if(res.data.is_apply){
+          wx.showToast({
+            title: '创作权限审核中',
+            icon:'none',
+          })
+        }
+        else{
+          wx.showModal({
+            content:'您当前无权限，是否申请创作者权限？',
+            confirmText:'去申请',
+            confirmColor:"#fa5151",
+            success:(modalRes)=>{
+              if(modalRes.confirm){
+                wx.navigateTo({
+                  url:'/pages/applyauthor/applyauthor'
+                });
+              }
+            }
+          });
+        }
+      }catch(err){
+        wx.showToast({
+          title: '获取权限失败',
+          icon:'none',
+        })
+      }
     })
-  }
+  },
+  async getAppStatus(){
+    try {
+      const res = await request({
+        url:'/api_blog/appstatus/',
+        method:'GET',
+      });
+      this.setData({
+        isReviewed:res.data.status
+      });
+    }
+    catch{
+      console.error("获取失败",err)
+    }
+  },
 });

@@ -50,7 +50,7 @@
       <view class="empty-text">请在上方选择标签</view>
       <view class="empty-sub">支持多个标签组合筛选</view>
     </view>
-    <view class="fab-btn" bindtap="goToAddPost">
+    <view wx:if="{{isReviewed}}" class="fab-btn" bindtap="goToAddPost">
       <text class="fab-icon">+</text>
     </view>
   </block>

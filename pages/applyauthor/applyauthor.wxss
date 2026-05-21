@@ -1,0 +1,103 @@
+/* 全局背景色与字体平衡 */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  padding: 0 30rpx; /* 侧边留白 30rpx，保持一致 */
+  box-sizing: border-box;
+}
+
+/* 头部标题与描述区域 */
+.header-section {
+  text-align: center;
+  margin: 40rpx auto 40rpx auto;
+  width: 100%;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.header-desc {
+  font-size: 26rpx;
+  color: #999; /* 优雅的辅助描述色 */
+}
+
+/* 主卡片样式（复用“我的资料”卡片） */
+.main-card {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  padding: 40rpx; 
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.03);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 文本域整体块 */
+.textarea-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.textarea-label {
+  margin-bottom: 24rpx;
+}
+
+/* 核心输入框：参考 custom-display-box 升级为可输入状态 */
+.reason-input {
+  width: 100%;
+  height: 280rpx; /* 调高高度，给输入预留充足空间 */
+  background-color: #f8f9fb; /* 相同的极浅蓝灰 */
+  border-radius: 20rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #edf0f5;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 占位符样式 */
+.placeholder-style {
+  color: #bbb;
+  font-size: 28rpx;
+}
+
+/* --- 🌟 底部按钮区域 --- */
+.save-btn-container {
+  margin-top: 40rpx; /* 稍微拉开一点点间距，小按钮更精致 */
+  padding-bottom: 60rpx;
+  display: flex;
+  justify-content: center; /* 让小按钮在页面水平居中 */
+}
+
+.action-btn-submit {
+  background-color: #07c160 !important;
+  color: #ffffff !important; 
+  border-radius: 40rpx;      /* 调大圆角，变成优雅的胶囊形状 */
+  padding: 20rpx 80rpx;     /* 上下缩窄(20rpx)，左右撑开(80rpx) */
+  font-size: 30rpx;         /* 字号稍微缩小一点 */
+  font-weight: 500;         /* 字重微调，不那么笨重 */
+  box-shadow: 0 6rpx 20rpx rgba(7, 193, 96, 0.2); 
+  
+  /* ⚡ 核心修改：取消 100% 撑满，让宽度由内容加内边距决定 */
+  width: auto !important;   
+  display: inline-block;    /* 改为行内块级，配合宽度自适应 */
+  line-height: 1.5;
+}
+
+/* 按钮点击态：稍微变深 */
+.action-btn-submit:active {
+  background-color: #06ad56 !important;
+}

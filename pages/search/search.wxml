@@ -99,7 +99,7 @@
         </view>
       </block>
     </view>
-    <view class="fab-btn" bindtap="goToAddPost">
+    <view wx:if="{{isReviewed}}" class="fab-btn" bindtap="goToAddPost">
       <text class="fab-icon">+</text>
     </view>
     <view class="card">

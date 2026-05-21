@@ -30,7 +30,8 @@
     "pages/profile/myfavorite/myfavorite",
     "pages/profile/settings/settings",
     "pages/profile/settings/legal/legal",
-    "pages/profile/mymessages/messagedetail/messagedetail"
+    "pages/profile/mymessages/messagedetail/messagedetail",
+    "pages/applyauthor/applyauthor"
   ],
   "window": {
     "backgroundTextStyle": "light",
