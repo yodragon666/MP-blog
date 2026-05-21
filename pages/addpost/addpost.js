@@ -59,7 +59,7 @@ Page({
       });
 
       const data = res.data;
-
+      console.log('aaaaaaa')
       const categoryIndex = this.data.categoryList.findIndex(
         c => c.id == data.category_id
       );
@@ -139,7 +139,6 @@ Page({
     this.setData({ selectedTags: selected, tagList });
   },
 
-  // ✅ 原样保留
   chooseImage() {
     wx.chooseMedia({
       count: 6,
